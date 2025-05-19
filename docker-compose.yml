@@ -21,8 +21,8 @@ services:
     depends_on:
       - redis
   
-  celery:
-    container_name: celery
+  celery1:
+    container_name: celery1
     build:
       context: ./dcelery
     command: celery --app=dcelery worker -l INFO
