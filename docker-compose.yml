@@ -1,7 +1,12 @@
 version: '3.8'
 
 services:
-
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"  # RabbitMQ management UI
+      - "5672:5672"    # RabbitMQ default port
   redis:
     image: redis:7.0.11-alpine
 
@@ -35,6 +40,7 @@ services:
     depends_on:
       - redis
       - django
+      - rabbitmq
 
   celery2:
     container_name: celery2
