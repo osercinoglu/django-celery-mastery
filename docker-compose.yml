@@ -41,7 +41,7 @@ services:
     build:
       context: ./celeryworker
       dockerfile: Dockerfile
-    command: celery -A celerytask worker -l INFO -Q queue2
+    command: celery -A celerytask worker -l INFO -Q celery,celery:1,celery:2,celery:3,celery:4,celery:5
     volumes:
       - ./celeryworker:/usr/src/app/
     environment:
