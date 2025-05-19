@@ -21,6 +21,7 @@ task_chain = chain(tp3.s(), tp2.s(), tp3.s())
 # Remove all docker
 docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -aq)
 
+from dcelery.celery import t1,t2,t3
 t2.apply_async(priority=5)
 t1.apply_async(priority=6)
 t3.apply_async(priority=9)
